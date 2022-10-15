@@ -16,7 +16,8 @@ class PaymentWidget extends StatefulWidget {
   BuildContext? loadingDialogContext;
   SnackBar? snackBar;
 
-  PaymentWidget({required this.request, required this.style, required this.mainContext});
+  PaymentWidget(
+      {required this.request, required this.style, required this.mainContext});
 
   @override
   State<StatefulWidget> createState() => _PaymentState();
@@ -78,7 +79,6 @@ class _PaymentState extends State<PaymentWidget>
 
   void _handlePayment() async {
     try {
-      Navigator.of(widget.mainContext).pop(); // to remove confirmation dialog
       _toggleButtonActive(false);
       controller.startTransaction(widget.request);
       _toggleButtonActive(true);
